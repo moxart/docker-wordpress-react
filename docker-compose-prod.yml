@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/production/Dockerfile
+    container_name: dwr-nginx-prod
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - dwr-network
+
+networks:
+  dwr-network:
+    driver: bridge
